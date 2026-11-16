@@ -1,20 +1,20 @@
-# TMDB Movie Box Office Analysis
+# Student Performance Factors
 
 **Author:** Anna Tashkinova  
 **Type:** Educational portfolio project
 
 ## Overview
-EDA, ROI, корреляции, доверительные интервалы и t-тесты Уэлча.
+Исследование связей между подготовкой, посещаемостью и результатами экзаменов; корреляция Пирсона.
 
 ## Tools
 Python, Pandas, NumPy, SciPy, Matplotlib, Seaborn, Jupyter Notebook.
 
 ## Dataset
-https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
+https://www.kaggle.com/datasets/lainguyn123/student-performance-factors
 
 ## How to run
 1. Install dependencies: `pip install -r requirements.txt`.
-2. Download `tmdb_5000_movies.csv` from the source and save it in `data/`.
+2. Download `StudentPerformanceFactors.csv` from the source and save it in `data/`.
 3. Open `notebooks/analysis.ipynb` in JupyterLab or Jupyter Notebook. Run cells with the working directory set to `notebooks/` so `../data/...` paths resolve.
 
 ## Scope and limitations
