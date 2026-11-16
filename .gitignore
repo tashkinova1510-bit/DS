@@ -1,5 +1,7 @@
-.ipynb_checkpoints/
 __pycache__/
+.pytest_cache/
 .venv/
 .env
+.DS_Store
 data/*.csv
+!data/.gitkeep

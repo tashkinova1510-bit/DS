@@ -1,30 +1,34 @@
-# Student Performance Factors
+# E-commerce Sales Analytics Dashboard
 
-**Author:** Anna Tashkinova  
-**Type:** Educational portfolio project
+Интерактивный аналитический дашборд для исследования продаж интернет-магазина.
 
-## Overview
-Исследование связей между подготовкой, посещаемостью и результатами экзаменов; корреляция Пирсона.
+## Возможности
+- Загрузка трёх CSV: заказы, товары и пользователи.
+- Контроль обязательных столбцов, уникальности справочников и корректности связей.
+- KPI: выручка, число заказов, покупатели и средний чек.
+- Общие фильтры по дате и категории для всех показателей и графиков.
+- Топ товаров, выручка по категориям, заказы по дням недели, динамика выручки.
+- Просмотр и экспорт отфильтрованных данных в CSV.
 
-## Tools
-Python, Pandas, NumPy, SciPy, Matplotlib, Seaborn, Jupyter Notebook.
+## Запуск
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+Загрузите CSV через боковую панель или положите их в `data/`.
 
-## Dataset
-https://www.kaggle.com/datasets/lainguyn123/student-performance-factors
+## Схема данных
+- `orders.csv`: `order_id`, `user_id`, `item_id`, `order_date`, `quantity`, `price_per_unit`.
+- `items.csv`: `item_id`, `item_name`, `category`, `base_price` (необязательный справочный столбец).
+- `users.csv`: `user_id`, `city`, `registration_date`.
 
-## How to run
-1. Install dependencies: `pip install -r requirements.txt`.
-2. Download `StudentPerformanceFactors.csv` from the source and save it in `data/`.
-3. Open `notebooks/analysis.ipynb` in JupyterLab or Jupyter Notebook. Run cells with the working directory set to `notebooks/` so `../data/...` paths resolve.
+Одна строка `orders.csv` — одна позиция заказа. `item_id` и `user_id` должны быть уникальными в справочниках. Выручка рассчитывается как `quantity × price_per_unit`. Цена продажи берётся из строки заказа, а не из справочника товаров; `base_price` не используется для расчёта выручки.
 
-## Scope and limitations
-This is an exploratory/statistical analysis project, **not** a trained machine-learning model. Results and interpretations should be verified against a fresh notebook run. Observed correlations do not establish causation.
+## Развёртывание
+Создайте репозиторий GitHub с `app.py`, `analytics.py`, `requirements.txt` и `README.md`. В Streamlit Community Cloud выберите этот репозиторий и `app.py` как entrypoint. CSV можно загрузить через интерфейс после запуска. Не публикуйте персональные данные покупателей.
 
-## Repository contents
-- `notebooks/analysis.ipynb` — original analysis and plots
-- `data/README.md` — dataset download instructions
-- `requirements.txt` — Python dependencies
-- `.gitignore` — files excluded from Git
+## Ограничения
+Результаты зависят от качества CSV. Возвраты и скидки отдельно не моделируются. Расчёт количества заказов по дням предполагает, что один `order_id` относится к одной дате. Приложение проверено на предоставленных CSV; набор небольшой и демонстрационный.
 
-## Reproducibility
-Run the notebook top-to-bottom after installing dependencies. Published notebook outputs are educational and should be checked against the dataset.
+## Проверка на предоставленном наборе
+40 заказов, 25 покупателей, 60 проданных единиц, выручка 97 541,94 ₽, AOV 2 438,55 ₽; период 1–10 февраля 2024. Автотесты: `python -m pytest -q`. Данные покупателей не включены в публичный архив — загрузите CSV через интерфейс.
