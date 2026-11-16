@@ -1,26 +1,24 @@
-# Checkout A/B Testing (Synthetic Data)
+# TMDB Movie Box Office Analysis
 
 **Author:** Anna Tashkinova  
 **Type:** Educational portfolio project
 
 ## Overview
-Симуляция A/B-эксперимента со средним чеком; гипотезы и статистические выводы.
+EDA, ROI, корреляции, доверительные интервалы и t-тесты Уэлча.
 
 ## Tools
 Python, Pandas, NumPy, SciPy, Matplotlib, Seaborn, Jupyter Notebook.
 
 ## Dataset
-Synthetic data generated with NumPy (`np.random.seed(42)`).
+https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata
 
 ## How to run
 1. Install dependencies: `pip install -r requirements.txt`.
-2. No dataset download is required.
+2. Download `tmdb_5000_movies.csv` from the source and save it in `data/`.
 3. Open `notebooks/analysis.ipynb` in JupyterLab or Jupyter Notebook. Run cells with the working directory set to `notebooks/` so `../data/...` paths resolve.
 
 ## Scope and limitations
 This is an exploratory/statistical analysis project, **not** a trained machine-learning model. Results and interpretations should be verified against a fresh notebook run. Observed correlations do not establish causation.
-
-**Note:** Experimental observations are simulated; the results are not evidence of a real product change.
 
 ## Repository contents
 - `notebooks/analysis.ipynb` — original analysis and plots
